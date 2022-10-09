@@ -32,7 +32,7 @@
  */
 
 public class CrossbodyBag extends Bag {
-    int numberOfStraps;
+    private int numberOfStraps;
 
     /**
      * Creates a new CrossbodyBag with the given color,
@@ -54,9 +54,10 @@ public class CrossbodyBag extends Bag {
 
     @Override
     public void enhance() {
-        this.increaseCapacity(2);
+        super.increaseCapacity(2);
     }
 
+    @Override
     public String toString() {
         return this.getColor() + " Crossbody Bag with " + this.numberOfStraps + " straps (" +
                 this.getNumberOfContents() + " / " + this.getCapacity() + ")";

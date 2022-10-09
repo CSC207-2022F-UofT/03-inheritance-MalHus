@@ -13,38 +13,40 @@ class BagMain {
      * <p>
      * This method should work for *all* Bags! We will test this method
      * on new Bag types (and HandBag subclasses)!
+     *
+     * @param bags An array of Bags
+     * @param double_enhance_handbags enhances all bags again if True
      */
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
         // TODO: Implement this.
-        for (int i = 0; i < bags.length; i++) {
-            bags[i].enhance();
+        for (Bag each_bag : bags) {
+            each_bag.enhance();
             if (double_enhance_handbags) {
-                bags[i].enhance();
+                if (each_bag instanceof HandBag) {
+                    each_bag.enhance();
+                }
             }
         }
     }
 
-    /**
-     * TODO: Implement this method
-     * Return the total number of straps in CrossbodyBags in bags.
-     * Any bag that is not a CrossbodyBag should not be included
-     * in the count!
-     *
-     * @param bags An array of Bags
-     * @return The total number of straps of CrossbodyBags.
-     */
-    public static int countCrossbodyStraps(Bag[] bags) {
-        // TODO: Implement this.
-        int total = 0;
+        /**
+         * TODO: Implement this method
+         * Return the total number of straps in CrossbodyBags in bags.
+         * Any bag that is not a CrossbodyBag should not be included
+         * in the count!
+         *
+         * @param bags An array of Bags
+         * @return The total number of straps of CrossbodyBags.
+         */
+        public static int countCrossbodyStraps(Bag[] bags) {
+            // TODO: Implement this.
+            int total = 0;
 
-        for (int i = 0; i < bags.length; i++) {
-            if (bags[i] instanceof CrossbodyBag) {
-                total += ((CrossbodyBag) bags[i]).getNumberOfStraps();
-                return total;
-            } else {
-                i = i + 1;
-            }
+            for (Bag each_bag : bags) {
+                if (each_bag instanceof CrossbodyBag) {
+                    total += ((CrossbodyBag) each_bag).getNumberOfStraps();
+                }
+            } return total;
         }
-        return total;
+
     }
-}
